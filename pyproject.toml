@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "recipebox_proj"
+version = "0.1.0"
+description = "A Django recipe box program"
+authors = ["Justin Miller <indymiller@gmail.com>"]
+license = "mit"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+django = "^3.0.5"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.7.9"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
