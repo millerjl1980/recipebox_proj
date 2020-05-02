@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Author Info{% endblock %}
+
+{% block content %}
+
+    <h1>{{author.name}}</h1>
+    <p>{{author.bio}}</p>
+
+    <a href="{% url 'home' %}">Back Home</a>
+    
+{% endblock %}
