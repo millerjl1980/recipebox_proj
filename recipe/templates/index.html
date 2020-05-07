@@ -16,15 +16,5 @@
         {% endfor %}
     </ul>
 
-    <h2>Here is a list of all the chefs we have recipes for in our box:</h2>
-    <ul>
-        {% for author in authors %}
-            <li>
-                <a href="{% url 'author' author.id %}">
-                    {{ author.name }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
 
 {% endblock %}
