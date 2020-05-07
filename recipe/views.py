@@ -7,8 +7,7 @@ from recipe.models import Author, Recipe
 
 def index(request):
     return render(request, 'index.html',
-                  {'recipes': Recipe.objects.all(),
-                   'authors': Author.objects.all()})
+                  {'recipes': Recipe.objects.all()})
 
 
 def recipe(request, id):
@@ -18,7 +17,8 @@ def recipe(request, id):
 
 def author(request, id):
     author = get_object_or_404(Author, pk=id)
-    return render(request, 'author.html', {'author': author})
+    recipes = Recipe.objects.filter(author=author)
+    return render(request, 'author.html', {'author': author, 'recipes': recipes})
 
 def add_author(request):
     if request.method == 'POST':

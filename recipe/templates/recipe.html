@@ -4,8 +4,8 @@
 
 {% block content %}
     <h1>{{recipe.title}}</h1>
-    <p><strong>Author: </strong>{{recipe.author}}</p>
     <p><strong>Website: </strong>{{recipe.website}}</p>
+    <p><strong>Author: </strong><a href="{% url 'author' recipe.author.id %}">{{recipe.author}}</a></p>
     <p><strong>Time required: </strong>{{recipe.time_required}}</p>
     <h3>Description:</h3>
     <p>{{recipe.description}}</p>
@@ -18,5 +18,3 @@
     <a href="{% url 'home' %}">Back Home</a>
     
 {% endblock %}
-
-<!-- <ul>>{{recipe.ingredients}}</ul> -->
