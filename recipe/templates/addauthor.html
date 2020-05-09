@@ -3,15 +3,21 @@
 {% block title %}New Author{% endblock %}
 
 {% block content %}
+<!-- https://stackoverflow.com/questions/9900383/django-how-to-exclude-form-field-if-the-user-is-staff -->
+{% if request.user.is_staff %}
+    <h1>List a New Author</h1>
+    <form method="POST">
+        <table>
+            {{ form }}
+            {{ user_form }}
+        </table>
+        {% csrf_token %}
 
-<h1>List a New Author</h1>
-<form method="POST">
-    <table>
-        {{ form }}
-    </table>
-    {% csrf_token %}
-    <button type="submit">Create</button>
-</form>
+        <button type="submit">Create</button>
+    </form>
+{% else %}
+    <p>Please return to homepage and login as admin to be able to add Authors</p>
+{% endif %}
 <br>
 <a href="{% url 'home' %}">Back Home</a>
     
