@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Recipe Box{% endblock %}
+
+{% block content %}
+    <h1>Welcome to the Django Recipe Box!</h1>
+    
+    <h2>Here is a list of all the current recipes:</h2>
+    <ul>
+        {% for recipe in recipes %}
+            <li>
+                <a href="{% url 'recipe' recipe.id %}">
+                    {{ recipe }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+
+    <a href="{% url 'addauthor' %}">
+        Should we add a new chef to our box? (Note: Please add before adding recipe!)
+     </a>
+    <br>
+    <a href="{% url 'addrecipe' %}">
+       Do you have a new recipe?
+    </a>
+
+{% endblock %}
